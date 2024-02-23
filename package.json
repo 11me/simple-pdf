@@ -1,0 +1,32 @@
+{
+    "name": "Simple PDF",
+    "description": "Chrome extension to edit PDF files",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "check": "svelte-check --tsconfig ./tsconfig.json"
+    },
+    "devDependencies": {
+        "@crxjs/vite-plugin": "2.0.0-beta.18",
+        "@sveltejs/vite-plugin-svelte": "2.4.5",
+        "@tsconfig/svelte": "5.0.2",
+        "@types/chrome": "0.0.243",
+        "autoprefixer": "^10.4.17",
+        "daisyui": "^4.7.2",
+        "postcss": "^8.4.35",
+        "svelte": "4.2.0",
+        "svelte-check": "3.5.0",
+        "svelte-preprocess": "5.0.4",
+        "tailwindcss": "^3.4.1",
+        "tslib": "2.6.2",
+        "typescript": "5.2.2",
+        "vite": "4.2.3"
+    },
+    "dependencies": {
+        "@pdfme/common": "^3.2.3",
+        "@pdfme/generator": "^3.2.3",
+        "@pdfme/ui": "^3.2.3"
+    }
+}
