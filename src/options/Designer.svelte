@@ -4,11 +4,17 @@
     import { BLANK_PDF } from "@pdfme/common";
     import { Designer } from "@pdfme/ui";
     import { generate } from "@pdfme/generator";
+    import { text, image, barcodes } from "@pdfme/schemas";
 
     let designer: Designer;
     let template: Template = {
         basePdf: BLANK_PDF,
         schemas: [],
+    };
+    const plugins = {
+        text,
+        image,
+        qrcode: barcodes.qrcode,
     };
     const reader = new FileReader();
 
@@ -18,6 +24,7 @@
             designer = new Designer({
                 domContainer: target!,
                 template,
+                plugins,
                 options: {
                     theme: {
                         components: {
@@ -37,14 +44,16 @@
     });
 
     const handleDownload = () => {
-        generate({ template, inputs: template.sampledata ?? [{}] }).then(
-            (pdf) => {
-                const blob = new Blob([pdf.buffer], {
-                    type: "application/pdf",
-                });
-                window.open(URL.createObjectURL(blob));
-            },
-        );
+        generate({
+            template,
+            inputs: template.sampledata ?? [{}],
+            plugins,
+        }).then((pdf) => {
+            const blob = new Blob([pdf.buffer], {
+                type: "application/pdf",
+            });
+            window.open(URL.createObjectURL(blob));
+        });
     };
 
     const handleLoadPDF = (event: any) => {

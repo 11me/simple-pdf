@@ -27,6 +27,7 @@
     "dependencies": {
         "@pdfme/common": "^3.2.3",
         "@pdfme/generator": "^3.2.3",
+        "@pdfme/schemas": "^3.2.3",
         "@pdfme/ui": "^3.2.3"
     }
 }
